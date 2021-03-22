@@ -109,6 +109,30 @@ function runEmployeeDB() {
 
             break;
 
+            case "Add Role":
+
+                addRole();
+
+            break;
+
+            case "Add Employee":
+
+                addEmployee();
+
+            break;
+
+            case "Add Department":
+
+                addDept();
+
+            break;
+
+            case "Update Employee Role":
+
+                updateEmployeeRole();
+
+            break;
+
             case "Exit":
 
                 console.log("======================================")
@@ -421,3 +445,105 @@ function updateEmployeeRole() {
         });
     });
 };
+
+function addRole() { 
+
+    connection.query("SELECT role.title AS Title, role.salary AS Salary FROM role LEFT JOIN department.name AS Department FROM department;",   function(err, res) {
+
+      inquirer.prompt([
+
+        {
+            name: "title",
+
+            type: "input",
+
+            message: "What is name of the new role?"
+
+        },
+        {
+            name: "salary",
+
+            type: "input",
+
+            message: "What is the salary of the new role?"
+
+        },
+        {
+            name: "department",
+
+            type: "rawlist",
+
+            message: "Under which department does this new role fall?",
+
+            choices: selectDepartment()
+        }
+      ]).then(function(answers) {
+
+          var deptId = selectDepartment().indexOf(answers.choice) + 1
+
+          connection.query("INSERT INTO role SET ?",
+
+            {
+                title: answers.title,
+
+                salary: answers.salary,
+
+                departmentID: deptId
+            },
+
+            function(err) {
+
+            if (err) throw err
+
+            console.table(answers);
+                
+            runEmployeeDB();
+            }
+          )     
+      });
+    });
+};
+
+function addDept() { 
+
+    inquirer.prompt([
+        
+        {
+          name: "name",
+
+          type: "input",
+
+          message: "What Department would you like to add? "
+
+        },
+        {
+            name: "id",
+
+            type: "input",
+
+            message: "What is the new Department ID number? "
+
+        }
+
+    ]).then(function(answers) {
+
+        connection.query("INSERT INTO department SET ? ",
+
+            {
+             
+              name: answers.name,
+
+              id: answers.id
+
+            },
+            function(err) {
+
+                if (err) throw err
+
+                console.table(res);
+
+                runEmployeeDB();
+            }
+        );
+    });
+  };
