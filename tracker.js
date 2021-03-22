@@ -191,3 +191,48 @@ function viewAllRoles() {
         
     })
 }
+
+function viewEmployeesByDept() {
+
+    connection.query("SELECT employees.firstName AS First_Name, employees.lastName AS Last_Name, department.name AS Department FROM employees JOIN role ON employees.roleID = role.id JOIN department ON role.departmentID = department.id ORDER BY department.id;",
+        
+        function(err, res) {
+            
+      if (err) throw err
+
+      console.log("");
+
+      console.log("*** EMPLOYEES LIST BY DEPARTMENT ***");
+
+      console.log("");
+
+      console.table(res)
+
+      runEmployeeDB()
+        
+    })
+}
+
+function viewEmployeesByRole() {
+
+    connection.query("SELECT employees.firstName AS First_Name, employees.lastName AS Last_Name, department.name AS Department FROM employees JOIN role ON employees.roleID = role.id JOIN department ON role.departmentID = department.id ORDER BY department.id;",
+        
+        function(err, res) {
+            
+      if (err) throw err
+
+      console.log("");
+
+      console.log("*** EMPLOYEES LIST BY ROLE ***");
+
+      console.log("");
+
+      console.table(res)
+
+      runEmployeeDB()
+        
+    })
+}
+
+
+
