@@ -3,6 +3,7 @@ DROP DATABASE IF EXISTS employees_db;
 CREATE DATABASE employees_db;
 
 
+
 CREATE TABLE employees (
 
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -37,5 +38,5 @@ CREATE TABLE role (
   salary DECIMAL(9,2),
 
   departmentID INT
-  
+
 );
