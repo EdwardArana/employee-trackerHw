@@ -158,11 +158,11 @@ function runEmployeeDB() {
 
       if (err) throw err
 
-      console.log("");
+      console.log(" ");
 
       console.log("*** EMPLOYEES LIST ***");
 
-      console.log("");
+      console.log(" ");
 
       console.table(res)
 
@@ -444,7 +444,52 @@ function updateEmployeeRole() {
     });
 };
 
-function addRole() { 
+
+function addDept() { 
+
+    inquirer.prompt([
+        
+        {
+          name: "name",
+
+          type: "input",
+
+          message: "What Department would you like to add? "
+
+        },
+        {
+            name: "id",
+
+            type: "input",
+
+            message: "What is the new Department ID number? "
+
+        }
+
+    ]).then(function(answers) {
+
+        connection.query("INSERT INTO department SET ? ",
+
+            {
+             
+              name: answers.name,
+
+              id: answers.id
+
+            },
+            function(err) {
+
+                if (err) throw err
+
+                console.table(res);
+
+                runEmployeeDB();
+            }
+        );
+    });
+  };
+
+  function addRole() { 
 
     connection.query("SELECT role.title AS Title, role.salary AS Salary FROM role LEFT JOIN department.name AS Department FROM department;",   function(err, res) {
 
@@ -501,47 +546,3 @@ function addRole() {
       });
     });
 };
-
-function addDept() { 
-
-    inquirer.prompt([
-        
-        {
-          name: "name",
-
-          type: "input",
-
-          message: "What Department would you like to add? "
-
-        },
-        {
-            name: "id",
-
-            type: "input",
-
-            message: "What is the new Department ID number? "
-
-        }
-
-    ]).then(function(answers) {
-
-        connection.query("INSERT INTO department SET ? ",
-
-            {
-             
-              name: answers.name,
-
-              id: answers.id
-
-            },
-            function(err) {
-
-                if (err) throw err
-
-                console.table(res);
-
-                runEmployeeDB();
-            }
-        );
-    });
-  };
