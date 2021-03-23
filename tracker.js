@@ -1,9 +1,6 @@
 const inquirer = require("inquirer");
 const mysql = require("mysql");
 const consoleTable = require("console.table");
-const { connect } = require("node:http2");
-const { Console } = require("node:console");
-const { CONNREFUSED } = require("node:dns");
 
 const connection = mysql.createConnection({
     host: "localhost",
