@@ -23,7 +23,7 @@ CREATE TABLE employees (
 
 CREATE TABLE department (
 
-  id INT,
+  id INTNOT NULL AUTO_INCREMENT,
 
   name VARCHAR (30),
 
@@ -51,4 +51,4 @@ SELECT * FROM department;
 
 SELECT * FROM role;
 
-SELECT * FROM employee;
+SELECT * FROM employees;

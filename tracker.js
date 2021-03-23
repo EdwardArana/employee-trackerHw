@@ -49,11 +49,11 @@ function runEmployeeDB() {
 
             choices: [
 
-                "View All Employmees",
+                "View All Employees",
 
                 "View All Departments",
 
-                "View All Roles ",
+                "View All Roles",
 
                 "View All Employees by Department",
 
