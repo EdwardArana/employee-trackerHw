@@ -257,7 +257,7 @@ function viewEmployeesByRole() {
 }
 
 
-const roleArray = [];
+let roleArray = [];
 
 function selectRole() {
 
@@ -274,7 +274,7 @@ function selectRole() {
 
 }
 
-const managersArray = [];
+let managersArray = [];
 
 function selectManager() {
 
@@ -292,7 +292,7 @@ function selectManager() {
 
 }
 
-const deptArray = [];
+let deptArray = [];
 
 function selectDepartment() {
 
@@ -352,9 +352,9 @@ function addEmployee() {
 
     ]).then(function (answers) {
 
-        var roleId = selectRole().indexOf(answers.role) + 1
+        let roleId = selectRole().indexOf(answers.role) + 1
 
-        var managerId = selectManager().indexOf(answers.choice) + 1
+        let managerId = selectManager().indexOf(answers.choice) + 1
 
         connection.query("INSERT INTO employees SET ?", 
         {
@@ -397,7 +397,7 @@ function updateEmployeeRole() {
 
                 choices: function () {
 
-                    var lastName = [];
+                    let lastName = [];
 
                     for (var i = 0; i < res.length; i++) {
 
@@ -421,7 +421,7 @@ function updateEmployeeRole() {
             },  
         ]).then(function (answers) {
 
-            var roleId = selectRole().indexOf(answers.role) + 1;
+            let roleId = selectRole().indexOf(answers.role) + 1;
 
             connection.query("UPDATE employees SET WHERE ?",
 
@@ -522,7 +522,7 @@ function addDept() {
         }
       ]).then(function(answers) {
 
-          var deptId = selectDepartment().indexOf(answers.choice) + 1
+          let deptId = selectDepartment().indexOf(answers.choice) + 1
 
           connection.query("INSERT INTO role SET ?",
 
