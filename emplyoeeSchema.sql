@@ -23,7 +23,7 @@ CREATE TABLE employees (
 
 CREATE TABLE department (
 
-  id INTNOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
 
   name VARCHAR (30),
 
@@ -35,7 +35,7 @@ CREATE TABLE department (
 
 CREATE TABLE role (
 
-  id INT AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
 
   title VARCHAR (30),
 

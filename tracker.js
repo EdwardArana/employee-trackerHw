@@ -57,7 +57,7 @@ function runEmployeeDB() {
 
                 "View All Employees by Department",
 
-                "View All Employee by Role",
+                "View All Employees by Role",
 
                 "Add Department",
 
