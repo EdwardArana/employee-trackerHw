@@ -31,7 +31,7 @@ INSERT INTO role (title, salary, departmentID) VALUES ("Operation Mgr.", 134400,
 INSERT INTO role (title, salary, departmentID) VALUES ("Hr Coordinator", 110000, 10);
 
 
-INSERT INTO employees (firstName, lastName, roleID, managerID) VALUES ('Craig', 'Yang',1, null );
+INSERT INTO employees (firstName, lastName, roleID, managerID) VALUES ('Craig', 'Yang', 1, null);
 
 INSERT INTO employees (firstName, lastName, roleID, managerID) VALUES ('Jerry', 'Young', 2, 1);
 
